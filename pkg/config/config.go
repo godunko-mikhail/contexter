@@ -5,10 +5,10 @@ import (
 )
 
 type Config struct {
-	Contexts []*Context `yaml:"contexts,omitempty"`
+	Contexts []*Context `yaml:"contexts"`
 }
 
-func (c *Config) Validate() error {
+func (c *Config) validate() error {
 
 	return nil
 }
@@ -20,4 +20,17 @@ func (c *Config) GetContext(name string) (*Context, error) {
 		}
 	}
 	return nil, errors.New("context not found")
+}
+
+func (c *Config) AddContext(ctx *Context) error {
+	if ctx == nil {
+		return errors.New("context is nil")
+	}
+
+	if err := ctx.Validate(); err != nil {
+		return err
+	}
+
+	c.Contexts = append(c.Contexts, ctx)
+	return nil
 }

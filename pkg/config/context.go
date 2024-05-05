@@ -6,3 +6,8 @@ type Context struct {
 	Envs       map[string]string `yaml:"envs,omitempty"`
 	Commands   []string          `yaml:"commands,omitempty"`
 }
+
+func (c *Context) Validate() error {
+
+	return nil
+}

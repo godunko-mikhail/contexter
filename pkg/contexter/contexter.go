@@ -11,7 +11,7 @@ var (
 
 func GetConfigPath() string {
 	if configPath == "" {
-		panic("bug: init required!")
+		panic("bug: initialize required!")
 	}
 	return configPath
 }

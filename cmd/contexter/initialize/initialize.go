@@ -1,4 +1,4 @@
-package use_context
+package initialize
 
 import (
 	"fmt"
@@ -8,22 +8,22 @@ import (
 )
 
 var Cmd = &cobra.Command{
-	Use:   "use-context [context]",
-	Short: "Starts new process with defined context",
+	Use:   "init",
+	Short: "Initialize contexter config",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		contexter.Init("")
 
-		if !config.Exists() {
-			fmt.Printf("No config file found, please run 'contexter init'\n")
+		if config.Exists() {
+			fmt.Println("Already initialized")
 			return nil
 		}
 
-		cfg, err := config.Load()
+		err := config.Create()
 		if err != nil {
 			return err
 		}
-		print("%v", cfg)
 
+		fmt.Println("Successfully initialized")
 		return nil
 	},
 }
