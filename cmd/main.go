@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/godunko-mikhail/contexter/cmd/contexter"
+	"github.com/godunko-mikhail/contexter/cmd/contexter/root"
 )
 
 func main() {
-	contexter.Execute()
+	root.Execute()
 }

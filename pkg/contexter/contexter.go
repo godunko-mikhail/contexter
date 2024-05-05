@@ -2,7 +2,6 @@ package contexter
 
 import (
 	"os"
-	"path"
 	"path/filepath"
 )
 
@@ -30,6 +29,6 @@ func Init(configPathOption string) {
 		if err != nil {
 			panic(err)
 		}
-		configPath = path.Join(home, ".contexter.conf")
+		configPath = filepath.Join(home, ".contexter.conf")
 	}
 }

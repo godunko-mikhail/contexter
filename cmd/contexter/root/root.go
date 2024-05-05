@@ -1,4 +1,4 @@
-package contexter
+package root
 
 import (
 	"github.com/godunko-mikhail/contexter/cmd/contexter/use_context"
